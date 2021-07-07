@@ -9,6 +9,11 @@
   <strong>Description:</strong>
   <%= @my_list.description %>
 </p>
-
+<div id="todo_items_wrapper">
+ <%= render @my_list.todo_items %>
+ <div id="form">
+  <%= render "todo_items/form" %>
+ </div>
+</div>
 <%= link_to 'Edit', edit_my_list_path(@my_list) %> |
 <%= link_to 'Back', my_lists_path %>
