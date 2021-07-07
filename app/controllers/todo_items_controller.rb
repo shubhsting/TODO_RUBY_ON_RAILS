@@ -7,6 +7,16 @@ class TodoItemsController < ApplicationController
         redirect_to(@my_list);
     end
 
+    # function to destroy todo
+    def destroy
+        @todo_item=@my_list.todo_items.find(params[:id]);
+        if(@todo_item.destroy)
+            flash[:success]="Todo item deleted"
+        else
+            flash[:error]="Todo item not deleted"
+        end
+        redirect_to(@my_list)
+    end
     private
     # find the list from list id in params
     def set_todo_list
